@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="Android 在锁屏状态中，有些情况下需要有较强的提示，这里仅仅使用通知栏不够，例如 来电，闹钟 等等。
-要实现这种功能很简单，只需要Activity中配置相应的WindowFlags即可：12getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |WindowManager.LayoutParams.FLAG">
+<meta name="description" content="使用情况：MenuItem中使用了app:actionLayout123456789101112&amp;lt;menu xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;    xmlns:app=&amp;quot;http://schemas.android.com/apk/res-auto&amp;quot;    xmlns:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android在锁屏状态下弹出Activity!">
-<meta property="og:url" content="https://pillowzhou.github.io/2017/03/09/Android在锁屏状态下显示Activity/index.html">
+<meta property="og:title" content="MenuItem中使用app:actionLayout（Switch）造成空指针异常">
+<meta property="og:url" content="https://pillowzhou.github.io/2017/03/12/MenuItem中使用app-actionLayout（Switch）造成空指针异常/index.html">
 <meta property="og:site_name" content="Develop Note">
-<meta property="og:description" content="Android 在锁屏状态中，有些情况下需要有较强的提示，这里仅仅使用通知栏不够，例如 来电，闹钟 等等。
-要实现这种功能很简单，只需要Activity中配置相应的WindowFlags即可：12getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |WindowManager.LayoutParams.FLAG">
-<meta property="og:updated_time" content="2017-03-09T15:26:58.000Z">
+<meta property="og:description" content="使用情况：MenuItem中使用了app:actionLayout123456789101112&amp;lt;menu xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;    xmlns:app=&amp;quot;http://schemas.android.com/apk/res-auto&amp;quot;    xmlns:">
+<meta property="og:updated_time" content="2017-03-12T12:49:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android在锁屏状态下弹出Activity!">
-<meta name="twitter:description" content="Android 在锁屏状态中，有些情况下需要有较强的提示，这里仅仅使用通知栏不够，例如 来电，闹钟 等等。
-要实现这种功能很简单，只需要Activity中配置相应的WindowFlags即可：12getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |WindowManager.LayoutParams.FLAG">
+<meta name="twitter:title" content="MenuItem中使用app:actionLayout（Switch）造成空指针异常">
+<meta name="twitter:description" content="使用情况：MenuItem中使用了app:actionLayout123456789101112&amp;lt;menu xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;    xmlns:app=&amp;quot;http://schemas.android.com/apk/res-auto&amp;quot;    xmlns:">
 
 
 
@@ -127,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/09/Android在锁屏状态下显示Activity/"/>
+  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/12/MenuItem中使用app-actionLayout（Switch）造成空指针异常/"/>
 
 
 
 
 
-  <title> Android在锁屏状态下弹出Activity! | Develop Note </title>
+  <title> MenuItem中使用app:actionLayout（Switch）造成空指针异常 | Develop Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/09/Android在锁屏状态下显示Activity/">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/MenuItem中使用app-actionLayout（Switch）造成空指针异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wooden fish">
@@ -273,7 +270,7 @@
             
             
               
-                Android在锁屏状态下弹出Activity!
+                MenuItem中使用app:actionLayout（Switch）造成空指针异常
               
             
           </h1>
@@ -288,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T23:11:24+08:00">
-                2017-03-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T15:48:24+08:00">
+                2017-03-12
               </time>
             
 
@@ -311,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-Note</span>
+                  <a href="/categories/Android-Crash/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Crash</span>
                   </a>
                 </span>
 
@@ -346,9 +343,10 @@
       
 
       
-        <p>Android 在锁屏状态中，有些情况下需要有较强的提示，这里仅仅使用通知栏不够，例如 来电，闹钟 等等。</p>
-<p>要实现这种功能很简单，只需要Activity中配置相应的WindowFlags即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |</div><div class="line">WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);</div></pre></td></tr></table></figure></p>
-<p>其中<br>FLAG_SHOW_WHEN_LOCKED 表示此Activity在锁屏的时候也可以显示出来；<br>FLAG_TURN_SCREEN_ON 表示显示此Window时把屏幕点亮；</p>
+        <h2 id="使用情况："><a href="#使用情况：" class="headerlink" title="使用情况："></a>使用情况：</h2><p>MenuItem中使用了app:actionLayout<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</div><div class="line">    tools:context=&quot;com.example.nfcdemo.MainActivity&quot;&gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/action_open_close_nfc&quot;</div><div class="line">        android:orderInCategory=&quot;100&quot;</div><div class="line">        android:title=&quot;&quot;</div><div class="line">        app:actionLayout=&quot;@layout/menu_switch&quot;</div><div class="line">        app:showAsAction=&quot;always&quot; /&gt; </div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure></p>
+<p>menu_switch对应的布局中包含了一个Switch控件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">   android:layout_width=&quot;match_parent&quot;</div><div class="line">   android:layout_height=&quot;match_parent&quot;</div><div class="line">   &gt;</div><div class="line">    &lt;Switch</div><div class="line">       android:id=&quot;@+id/switchForActionBar&quot;</div><div class="line">       android:layout_width=&quot;wrap_content&quot;</div><div class="line">       android:layout_height=&quot;wrap_content&quot;</div><div class="line">       android:layout_centerInParent=&quot;true&quot;</div><div class="line">       android:text=&quot;&quot;</div><div class="line">       android:checked=&quot;false&quot;</div><div class="line">       android:theme=&quot;@style/ThemeOverlay.SwitchBar&quot;</div><div class="line">       /&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure></p>
+<p>##错误原因<br>直接使用错误方式（findViewById）获取Switch，导致获取失败，使用时空指针异常</p>
+<p>##解决办法<br>使用正确的方式（menu–&gt;menuitem–&gt;actionview–&gt;switch）获取Switch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public boolean onCreateOptionsMenu(Menu menu) &#123;</div><div class="line">    // Inflate the menu; this adds items to the action bar if it is present.</div><div class="line">    getMenuInflater().inflate(R.menu.menu_main, menu);</div><div class="line">    MenuItem switchItem = menu.findItem(R.id.action_open_close_nfc);</div><div class="line">   mSwitch = (Switch) switchItem.getActionView().findViewById(R.id.switchForActionBar);</div><div class="line">    if (mNfcAdapter != null) &#123;</div><div class="line">        mSwitch.setChecked(mNfcAdapter.isEnabled());</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -379,8 +377,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/Android动态库找不到/" rel="next" title="Android动态库找不到">
-                <i class="fa fa-chevron-left"></i> Android动态库找不到
+              <a href="/2017/03/12/CursorWindow OOM/" rel="next" title="CursorWindow OOM">
+                <i class="fa fa-chevron-left"></i> CursorWindow OOM
               </a>
             
           </div>
@@ -389,8 +387,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/12/CursorWindow OOM/" rel="prev" title="CursorWindow OOM">
-                CursorWindow OOM <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/12/jar与aar的区别/" rel="prev" title="jar与aar的区别">
+                jar与aar的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -438,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -497,6 +504,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用情况："><span class="nav-number">1.</span> <span class="nav-text">使用情况：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
