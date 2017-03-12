@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="jar,aar," />
 
 
 
@@ -87,16 +87,22 @@
 
 
 
-<meta name="description" content="错误信息123456789101112131415161718192021222324Process: com.android.demo, PID: 6260java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file &amp;quot;/data/app/com.android.demo-1/ba">
+<meta name="description" content="使用Android Studio对工程进行编译后，会同时生成jar与aar文件。
+其位置分别位于：12jar: /build/intermediates/bundles/debug(release)/classes.jaraar: /build/outputs/aar/libraryname.aar
+两者的区别：jar 中只包含了class文件与清单文件。aar中除了包含jar中的class文件还">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android动态库找不到">
-<meta property="og:url" content="https://pillowzhou.github.io/2017/03/02/Android动态库找不到/index.html">
+<meta property="og:title" content="jar与aar的区别">
+<meta property="og:url" content="https://pillowzhou.github.io/2017/03/12/jar与aar的区别/index.html">
 <meta property="og:site_name" content="Develop Note">
-<meta property="og:description" content="错误信息123456789101112131415161718192021222324Process: com.android.demo, PID: 6260java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file &amp;quot;/data/app/com.android.demo-1/ba">
-<meta property="og:updated_time" content="2017-03-09T15:51:20.000Z">
+<meta property="og:description" content="使用Android Studio对工程进行编译后，会同时生成jar与aar文件。
+其位置分别位于：12jar: /build/intermediates/bundles/debug(release)/classes.jaraar: /build/outputs/aar/libraryname.aar
+两者的区别：jar 中只包含了class文件与清单文件。aar中除了包含jar中的class文件还">
+<meta property="og:updated_time" content="2017-03-12T12:25:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android动态库找不到">
-<meta name="twitter:description" content="错误信息123456789101112131415161718192021222324Process: com.android.demo, PID: 6260java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file &amp;quot;/data/app/com.android.demo-1/ba">
+<meta name="twitter:title" content="jar与aar的区别">
+<meta name="twitter:description" content="使用Android Studio对工程进行编译后，会同时生成jar与aar文件。
+其位置分别位于：12jar: /build/intermediates/bundles/debug(release)/classes.jaraar: /build/outputs/aar/libraryname.aar
+两者的区别：jar 中只包含了class文件与清单文件。aar中除了包含jar中的class文件还">
 
 
 
@@ -124,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/02/Android动态库找不到/"/>
+  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/12/jar与aar的区别/"/>
 
 
 
 
 
-  <title> Android动态库找不到 | Develop Note </title>
+  <title> jar与aar的区别 | Develop Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/02/Android动态库找不到/">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/jar与aar的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wooden fish">
@@ -270,7 +276,7 @@
             
             
               
-                Android动态库找不到
+                jar与aar的区别
               
             
           </h1>
@@ -285,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-02T15:23:24+08:00">
-                2017-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T20:24:24+08:00">
+                2017-03-12
               </time>
             
 
@@ -308,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-jni/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-jni</span>
+                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Note</span>
                   </a>
                 </span>
 
@@ -343,18 +349,16 @@
       
 
       
-        <h2 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Process: com.android.demo, PID: 6260</div><div class="line">java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file &quot;/data/app/com.</div><div class="line">android.demo-1/base.apk&quot;],nativeLibraryDirectories=[/data/app/com.android.demo-1/lib/arm64,</div><div class="line">/data/app/com.android.demo-1/base.apk!/lib/arm64-v8a, /vendor/lib64, /system/lib64]]]</div><div class="line">couldn&apos;t find &quot;libphonesdk.so&quot;</div><div class="line">   at java.lang.Runtime.loadLibrary(Runtime.java:367)</div><div class="line">   at java.lang.System.loadLibrary(System.java:1076)</div><div class="line">   at com.ctrip.basebiz.cti.phonesdk.PhoneSdkNative.&lt;clinit&gt;(PhoneSdkNative.java:17)</div><div class="line">   at com.ctrip.basebiz.cti.phonesdk.PhoneSdkClient.&lt;init&gt;(PhoneSdkClient.java:28)</div><div class="line">   at ctrip.android.xcall.business.manager.VoipManager.&lt;init&gt;(VoipManager.java:76)</div><div class="line">   at ctrip.android.xcall.business.manager.VoipManager.getInstance(VoipManager.java:69)</div><div class="line">   at ctrip.android.xcall.ui.activity.SplashActivity.onCreate(SplashActivity.java:24)</div><div class="line">   at android.app.Activity.performCreate(Activity.java:6303)</div><div class="line">   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1108)</div><div class="line">   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2376)</div><div class="line">   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2483)</div><div class="line">   at android.app.ActivityThread.access$900(ActivityThread.java:153)</div><div class="line">   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1349)</div><div class="line">   at android.os.Handler.dispatchMessage(Handler.java:102)</div><div class="line">   at android.os.Looper.loop(Looper.java:148)</div><div class="line">   at android.app.ActivityThread.main(ActivityThread.java:5441)</div><div class="line">   at java.lang.reflect.Method.invoke(Native Method)</div><div class="line">   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:738)</div><div class="line">   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:628)</div></pre></td></tr></table></figure>
-<h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>上面错误日志中的 couldn’t find “libphonesdk.so” 道出了错误原因：没有找到需要的 .so 文件。继续分析上<br>面的日志，发现其分别会从 “lib/arm64”, “lib/arm64-v8a”, “/vendor/lib64”, “/system/lib64” 这几个目录中<br>进行查找。显然这几个目录是没有的，理所当然不会找到！</p>
-<p>armeabi 针对的是旧的arm v5 cpu, armeabi-v7a是针对有浮点运算或高级扩展功能的arm v7 cpu。armeabi 和<br>armeabi-v7a是类似的指令集，后者是前者的增强类型，在运行速度，效率上有所的高。这两种都是32位指令集。<br>可以相互兼容。<br>arm64-v8a 即是比v7更新的64位架构处理器，这种架构中包含两个执行状态aarch32和aarch64。所以这种处理器<br>可以支持32位的 so。</p>
-<p>那为什么上面不查找我的armeabi 和 armeabi-v7a目录呢？<br>这是因为Android 查找 so 是有规则的！<br>Android4.x, 只要能找到so，就可以运行，so可以在armeabi,armeabi-v7a, arm64-v8a，so位置可以很随意；<br>Android5.x，检查更加严格，会只有和芯片型号对应目录的so会安装到手机中（当没有与其型号对应的目录会将<br>armeabi 等32 位的so安装进去）；<br>Android6.x，检查更加严格；<br>Android7.x，执行更严格的安全检查，禁止使用系统目录的内容。所以如果希望在7.x以上版本，需要把系统目录<br>的libsqlite.so拷贝出来，也放在自己app对应指令目录下；</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>知道了上面的错误原因，解决起来就比较简单，这里有两个解决方案：</p>
-<ol>
-<li>创建与cpu型号对应的目录，然后将其对应的 so 放进去；</li>
-<li>修改build.gradle文件，设置支持的动态库架构；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ndk &#123;</div><div class="line">    // 设置支持的SO库架构</div><div class="line">    abiFilters &apos;armeabi&apos; , &apos;arm64-v8a&apos; //, &apos;x86&apos;, &apos;armeabi-v7a&apos;, &apos;x86_64&apos;, &apos;arm64-v8a&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>查看设备的CPU架构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb shell</div><div class="line">cat /proc/cpuinfo</div></pre></td></tr></table></figure></p>
-<p>然后看其最上面一行的 Processor 信息。<br>我的CPU信息是：Processor : AArch64 Processor rev 4 (aarch64) 显然是64位的(aarch32是armv7, aarch64是<br>armv8)，这样也就不难理解为什么上面查找的几个目录都是64位的。</p>
+        <p>使用Android Studio对工程进行编译后，会同时生成jar与aar文件。</p>
+<h3 id="其位置分别位于："><a href="#其位置分别位于：" class="headerlink" title="其位置分别位于："></a>其位置分别位于：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jar: /build/intermediates/bundles/debug(release)/classes.jar</div><div class="line">aar: /build/outputs/aar/libraryname.aar</div></pre></td></tr></table></figure>
+<h3 id="两者的区别："><a href="#两者的区别：" class="headerlink" title="两者的区别："></a>两者的区别：</h3><p>jar 中只包含了class文件与清单文件。<br>aar中除了包含jar中的class文件还包含工程中使用的所有资源，class及res资源文件全部包含。<br>如果只是一个简单的类库那么使用生成的*.jar文件即可；如果你的是一个UI库，包含一些自己写的控件布局文件以及字体等资源文件那么就只能使用*.aar文件。</p>
+<h3 id="使用方式："><a href="#使用方式：" class="headerlink" title="使用方式："></a>使用方式：</h3><p>jar 拷贝到 libs 目录，并在gradle文件中添加  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">        compile fileTree(include: [&apos;*.jar&apos;], dir: &apos;libs&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>aar 有两种方式：<br>1.本地使用<br>拷贝到 libs目录，并在gradle文件中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    flatDir &#123;</div><div class="line">        dirs &apos;libs&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile(name:&apos;genius&apos;, ext:&apos;aar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.网络加载<br>将aar发布到mavenCentral仓库，在gradle文件中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    maven &#123;</div><div class="line">        url &quot;http://maven.dev.sh.ctripcorp.com:8081/nexus/content/groups/public&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    classpath &apos;net.sf.proguard:proguard-gradle:5.2.1&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="多层Module依赖本地AAR"><a href="#多层Module依赖本地AAR" class="headerlink" title="多层Module依赖本地AAR"></a>多层Module依赖本地AAR</h3><p>Android Studio多层Module依赖本地AAR，在编译的时候出发生错误，找不到AAR（ModuleA libs中有c.aar，ModuleB依赖ModuleA）<br>此时需要在ModuleB的build.gradle中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    flatDir &#123;</div><div class="line">        dirs &apos;../ModuleA/libs&apos;,&apos;libs&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同时在dependencies中添加aar名称：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile(name:&apos;c&apos;, ext:&apos;aar&apos;)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -376,6 +380,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/jar/" rel="tag"># jar</a>
+          
+            <a href="/tags/aar/" rel="tag"># aar</a>
+          
+        </div>
+      
 
       
         
@@ -385,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/01/TAB页面实现/" rel="next" title="TAB页面实现">
-                <i class="fa fa-chevron-left"></i> TAB页面实现
+              <a href="/2017/03/09/Android在锁屏状态下显示Activity/" rel="next" title="Android在锁屏状态下弹出Activity!">
+                <i class="fa fa-chevron-left"></i> Android在锁屏状态下弹出Activity!
               </a>
             
           </div>
@@ -394,10 +406,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/09/Android在锁屏状态下显示Activity/" rel="prev" title="Android在锁屏状态下弹出Activity!">
-                Android在锁屏状态下弹出Activity! <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -522,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误信息"><span class="nav-number">1.</span> <span class="nav-text">错误信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误原因"><span class="nav-number">2.</span> <span class="nav-text">错误原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">4.</span> <span class="nav-text">其它</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#其位置分别位于："><span class="nav-number">1.</span> <span class="nav-text">其位置分别位于：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两者的区别："><span class="nav-number">2.</span> <span class="nav-text">两者的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式："><span class="nav-number">3.</span> <span class="nav-text">使用方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多层Module依赖本地AAR"><span class="nav-number">4.</span> <span class="nav-text">多层Module依赖本地AAR</span></a></li></ol></div>
             
 
           </div>
