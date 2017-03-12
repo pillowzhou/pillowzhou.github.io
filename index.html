@@ -247,6 +247,299 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/Android动态库找不到/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/12/Android动态库找不到/" itemprop="url">
+                  Android动态库找不到
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T21:02:24+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Crash/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Crash</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Process: com.android.demo, PID: 6260</div><div class="line">java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file &quot;/data/app/com.</div><div class="line">android.demo-1/base.apk&quot;],nativeLibraryDirectories=[/data/app/com.android.demo-1/lib/arm64,</div><div class="line">/data/app/com.android.demo-1/base.apk!/lib/arm64-v8a, /vendor/lib64, /system/lib64]]]</div><div class="line">couldn&apos;t find &quot;libphonesdk.so&quot;</div><div class="line">   at java.lang.Runtime.loadLibrary(Runtime.java:367)</div><div class="line">   at java.lang.System.loadLibrary(System.java:1076)</div><div class="line">   at com.ctrip.basebiz.cti.phonesdk.PhoneSdkNative.&lt;clinit&gt;(PhoneSdkNative.java:17)</div><div class="line">   at com.ctrip.basebiz.cti.phonesdk.PhoneSdkClient.&lt;init&gt;(PhoneSdkClient.java:28)</div><div class="line">   at ctrip.android.xcall.business.manager.VoipManager.&lt;init&gt;(VoipManager.java:76)</div><div class="line">   at ctrip.android.xcall.business.manager.VoipManager.getInstance(VoipManager.java:69)</div><div class="line">   at ctrip.android.xcall.ui.activity.SplashActivity.onCreate(SplashActivity.java:24)</div><div class="line">   at android.app.Activity.performCreate(Activity.java:6303)</div><div class="line">   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1108)</div><div class="line">   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2376)</div><div class="line">   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2483)</div><div class="line">   at android.app.ActivityThread.access$900(ActivityThread.java:153)</div><div class="line">   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1349)</div><div class="line">   at android.os.Handler.dispatchMessage(Handler.java:102)</div><div class="line">   at android.os.Looper.loop(Looper.java:148)</div><div class="line">   at android.app.ActivityThread.main(ActivityThread.java:5441)</div><div class="line">   at java.lang.reflect.Method.invoke(Native Method)</div><div class="line">   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:738)</div><div class="line">   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:628)</div></pre></td></tr></table></figure>
+<h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>上面错误日志中的 couldn’t find “libphonesdk.so” 道出了错误原因：没有找到需要的 .so 文件。继续分析上<br>面的日志，发现其分别会从 “lib/arm64”, “lib/arm64-v8a”, “/vendor/lib64”, “/system/lib64” 这几个目录中<br>进行查找。显然这几个目录是没有的，理所当然不会找到！</p>
+<p>armeabi 针对的是旧的arm v5 cpu, armeabi-v7a是针对有浮点运算或高级扩展功能的arm v7 cpu。armeabi 和<br>armeabi-v7a是类似的指令集，后者是前者的增强类型，在运行速度，效率上有所的高。这两种都是32位指令集。<br>可以相互兼容。<br>arm64-v8a 即是比v7更新的64位架构处理器，这种架构中包含两个执行状态aarch32和aarch64。所以这种处理器<br>可以支持32位的 so。</p>
+<p>那为什么上面不查找我的armeabi 和 armeabi-v7a目录呢？<br>这是因为Android 查找 so 是有规则的！<br>Android4.x, 只要能找到so，就可以运行，so可以在armeabi,armeabi-v7a, arm64-v8a，so位置可以很随意；<br>Android5.x，检查更加严格，会只有和芯片型号对应目录的so会安装到手机中（当没有与其型号对应的目录会将<br>armeabi 等32 位的so安装进去）；<br>Android6.x，检查更加严格；<br>Android7.x，执行更严格的安全检查，禁止使用系统目录的内容。所以如果希望在7.x以上版本，需要把系统目录<br>的libsqlite.so拷贝出来，也放在自己app对应指令目录下；</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>知道了上面的错误原因，解决起来就比较简单，这里有两个解决方案：</p>
+<ol>
+<li>创建与cpu型号对应的目录，然后将其对应的 so 放进去；</li>
+<li>修改build.gradle文件，设置支持的动态库架构；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ndk &#123;</div><div class="line">    // 设置支持的SO库架构</div><div class="line">    abiFilters &apos;armeabi&apos; , &apos;arm64-v8a&apos; //, &apos;x86&apos;, &apos;armeabi-v7a&apos;, &apos;x86_64&apos;, &apos;arm64-v8a&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>查看设备的CPU架构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb shell</div><div class="line">cat /proc/cpuinfo</div></pre></td></tr></table></figure></p>
+<p>然后看其最上面一行的 Processor 信息。<br>我的CPU信息是：Processor : AArch64 Processor rev 4 (aarch64) 显然是64位的(aarch32是armv7, aarch64是<br>armv8)，这样也就不难理解为什么上面查找的几个目录都是64位的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/子线程中使用Toast出错/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/12/子线程中使用Toast出错/" itemprop="url">
+                  子线程中使用Toast出错
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T21:01:24+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Crash/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Crash</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##错误信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">java.lang.RuntimeException: Can&apos;t create handler inside thread that has not called Looper.prepare()                  	 at android.os.Handler.&lt;init&gt;(Handler.java:200)                            </div><div class="line">	at android.os.Handler.&lt;init&gt;(Handler.java:114)                             </div><div class="line">	at android.widget.Toast$TN.&lt;init&gt;(Toast.java:345) </div><div class="line">	at android.widget.Toast.&lt;init&gt;(Toast.java:101) </div><div class="line">	at android.widget.Toast.makeText(Toast.java:259)                          </div><div class="line">	at demo.permission.example.com.MainActivity$1.run(MainActivity.java:22) </div><div class="line">    at java.lang.Thread.run(Thread.java:818)</div></pre></td></tr></table></figure></p>
+<p>##错误原因<br>从日志看，错误是使用Handler和Looper出错，使用Handler时并没有对Looper进行初始化。但是我并没有创建使用Handler，我仅仅只是使用了Toast。仅仅只是在子线程中写了一句：<br>Toast.makeText(MainActivity.this, “test”, Toast.LENGTH_LONG).show();<br>通过翻看源码，Toast的show和hide方法的实现是基于Handler机制。但是其代码中只初始化了Handler:<br>final Handler mHandler = new Handler();<br>并没有初始化Looper的方法（Looper.perpare()和Looper.loop()），说明Toast使用的Handler是当前调用的线程的Looper。所以，当我们在主线程（也就是UI线程中）可以随意调用Toast.makeText方法，因为Android系统帮我们实现了主线程的Looper初始化。但是我们是在子线程中调用的，同时初始化Looper，因此出现此错误<br><a href="http://www.2cto.com/kf/201502/374764.html" target="_blank" rel="external">http://www.2cto.com/kf/201502/374764.html</a></p>
+<p>##解决办法<br>在待使用的子线程中初始化Looper。具体实现的方式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Looper.prepare(); </div><div class="line">Toast.makeText(getApplicationContext(), &quot;test&quot;, Toast.LENGTH_LONG).show(); </div><div class="line">Looper.loop();</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/Android快速点击导致多次执行的解决思路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -537,6 +830,149 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/INSTALL FAILED CONFLICTING PROVIDER/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/12/INSTALL FAILED CONFLICTING PROVIDER/" itemprop="url">
+                  INSTALL FAILED CONFLICTING PROVIDER
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T15:52:24+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Crash/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Crash</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##出错信息<br>安装应用程序时出错：INSTALL FAILED CONFLICTING PROVIDER</p>
+<p>##错误原因<br>多个程序使用了相同的provider，在AndroidManifest中配置了相同的android:authorities，在安装是其中一个程序时，再安装另外一个时，提示 provider冲突。在同一个设备上，provider配置的android:authorities必须是全局惟一的</p>
+<p>##解决办法<br>在不同的应用中，配置不同的android:authorities</p>
+<p>stackoverflow 有其它方案<br><a href="http://stackoverflow.com/questions/16267785/install-shows-error-in-console-install-failed-conflicting-provider" target="_blank" rel="external">http://stackoverflow.com/questions/16267785/install-shows-error-in-console-install-failed-conflicting-provider</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/MenuItem中使用app-actionLayout（Switch）造成空指针异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -640,6 +1076,181 @@
 <p>menu_switch对应的布局中包含了一个Switch控件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">   android:layout_width=&quot;match_parent&quot;</div><div class="line">   android:layout_height=&quot;match_parent&quot;</div><div class="line">   &gt;</div><div class="line">    &lt;Switch</div><div class="line">       android:id=&quot;@+id/switchForActionBar&quot;</div><div class="line">       android:layout_width=&quot;wrap_content&quot;</div><div class="line">       android:layout_height=&quot;wrap_content&quot;</div><div class="line">       android:layout_centerInParent=&quot;true&quot;</div><div class="line">       android:text=&quot;&quot;</div><div class="line">       android:checked=&quot;false&quot;</div><div class="line">       android:theme=&quot;@style/ThemeOverlay.SwitchBar&quot;</div><div class="line">       /&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure></p>
 <p>##错误原因<br>直接使用错误方式（findViewById）获取Switch，导致获取失败，使用时空指针异常</p>
 <p>##解决办法<br>使用正确的方式（menu–&gt;menuitem–&gt;actionview–&gt;switch）获取Switch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public boolean onCreateOptionsMenu(Menu menu) &#123;</div><div class="line">    // Inflate the menu; this adds items to the action bar if it is present.</div><div class="line">    getMenuInflater().inflate(R.menu.menu_main, menu);</div><div class="line">    MenuItem switchItem = menu.findItem(R.id.action_open_close_nfc);</div><div class="line">   mSwitch = (Switch) switchItem.getActionView().findViewById(R.id.switchForActionBar);</div><div class="line">    if (mNfcAdapter != null) &#123;</div><div class="line">        mSwitch.setChecked(mNfcAdapter.isEnabled());</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/pjsip源码编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/12/pjsip源码编译/" itemprop="url">
+                  pjsip源码编译
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T15:48:24+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/pjsip/" itemprop="url" rel="index">
+                    <span itemprop="name">pjsip</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
+<li>搭建Android NDK(我使用的是<a href="&quot;http://dl.google.com/android/ndk/android-ndk-r10e-darwin-x86_64.bin&quot;">android-ndk-r10</a>)编译环境</li>
+<li><p>搭建SWIG环境，SWIG依赖PCRE，需先下载安装PCRE<br>下载<a href="&quot;https://nchc.dl.sourceforge.net/project/pcre/pcre/8.39/pcre-8.39.tar.gz&quot;">PCRE</a><br>解压缩软件包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xvf pcre.tar.gz</div></pre></td></tr></table></figure>
+<p>执行命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo ./configure --prefix=/opt/pcre</div><div class="line">sudo make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<p>下载<a href="&quot;https://nchc.dl.sourceforge.net/project/swig/swig/swig-3.0.11/swig-3.0.11.tar.gz&quot;">SWIG</a><br>解压缩软件包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xvf pcre.tar.gz</div></pre></td></tr></table></figure>
+<p>执行命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo  ./configure --with-pcre-prefix=/opt/pcre</div><div class="line">sudo make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="编译准备"><a href="#编译准备" class="headerlink" title="编译准备"></a>编译准备</h2><ol>
+<li>下载PJSIP源码</li>
+<li><p>在pjproject/pjlib/include/pj/目录下新建config_site.h文件并添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/* Activate Android specific settings in the &apos;config_site_sample.h&apos; */</div><div class="line">#define PJ_CONFIG_ANDROID 1</div><div class="line">#include &lt;pj/config_site_sample.h&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改configure-android文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ANDROID_NDK_ROOT=&quot;/Users/xx/Library/android-ndk-r10e&quot;</div><div class="line">APP_PLATFORM=&quot;android-21&quot;</div><div class="line">TARGET_ABI=&quot;armeabi&quot;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##开始编译</p>
+<ol>
+<li><p>进入pjsip目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /path/to/your/pjsip/dir</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行configure</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure-android</div></pre></td></tr></table></figure>
+</li>
+<li><p>make</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make dep &amp;&amp; make clean &amp;&amp; make</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##编译 telnet 接口的 pjsua 库<br> 进入到pjsip-apps/src/pjsua/android目录下，执行ndk-build<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd /path/to/your/pjsip/dir</div><div class="line">$ cd pjsip-apps/src/pjsua/android</div><div class="line">$ ndk-build</div></pre></td></tr></table></figure></p>
+<p>##编译 pjsua2 示例应用<br>  进入$PJDIR/pjsip-apps/src/swig目录下执行make, 生成测试代码和libpjsua2.so<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd /path/to/your/pjsip/dir</div><div class="line">$ cd pjsip-apps/src/swig</div><div class="line">$ make</div></pre></td></tr></table></figure></p>
+<p>##创建自已的 pjsua2 应用<br>  新建Android工程;将$PJDIR/pjsip-apps/src/swig目录下的代码和so拷贝<br>  到新建工程中；<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cd $YOUR_PROJECT_DIR</div><div class="line">$ cp -r $PJSIP_DIR/pjsip-apps/src/swig/java/android/src .</div><div class="line"></div><div class="line">$ cd $YOUR_PROJECT_DIR</div><div class="line">$ cp -r $PJSIP_DIR/pjsip-apps/src/swig/java/android/libs .</div></pre></td></tr></table></figure></p>
 
           
         
@@ -966,157 +1577,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/02/Android动态库找不到/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/02/Android动态库找不到/" itemprop="url">
-                  Android动态库找不到
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-02T15:23:24+08:00">
-                2017-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Crash/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-Crash</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Process: com.android.demo, PID: 6260</div><div class="line">java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file &quot;/data/app/com.</div><div class="line">android.demo-1/base.apk&quot;],nativeLibraryDirectories=[/data/app/com.android.demo-1/lib/arm64,</div><div class="line">/data/app/com.android.demo-1/base.apk!/lib/arm64-v8a, /vendor/lib64, /system/lib64]]]</div><div class="line">couldn&apos;t find &quot;libphonesdk.so&quot;</div><div class="line">   at java.lang.Runtime.loadLibrary(Runtime.java:367)</div><div class="line">   at java.lang.System.loadLibrary(System.java:1076)</div><div class="line">   at com.ctrip.basebiz.cti.phonesdk.PhoneSdkNative.&lt;clinit&gt;(PhoneSdkNative.java:17)</div><div class="line">   at com.ctrip.basebiz.cti.phonesdk.PhoneSdkClient.&lt;init&gt;(PhoneSdkClient.java:28)</div><div class="line">   at ctrip.android.xcall.business.manager.VoipManager.&lt;init&gt;(VoipManager.java:76)</div><div class="line">   at ctrip.android.xcall.business.manager.VoipManager.getInstance(VoipManager.java:69)</div><div class="line">   at ctrip.android.xcall.ui.activity.SplashActivity.onCreate(SplashActivity.java:24)</div><div class="line">   at android.app.Activity.performCreate(Activity.java:6303)</div><div class="line">   at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1108)</div><div class="line">   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2376)</div><div class="line">   at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2483)</div><div class="line">   at android.app.ActivityThread.access$900(ActivityThread.java:153)</div><div class="line">   at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1349)</div><div class="line">   at android.os.Handler.dispatchMessage(Handler.java:102)</div><div class="line">   at android.os.Looper.loop(Looper.java:148)</div><div class="line">   at android.app.ActivityThread.main(ActivityThread.java:5441)</div><div class="line">   at java.lang.reflect.Method.invoke(Native Method)</div><div class="line">   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:738)</div><div class="line">   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:628)</div></pre></td></tr></table></figure>
-<h2 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h2><p>上面错误日志中的 couldn’t find “libphonesdk.so” 道出了错误原因：没有找到需要的 .so 文件。继续分析上<br>面的日志，发现其分别会从 “lib/arm64”, “lib/arm64-v8a”, “/vendor/lib64”, “/system/lib64” 这几个目录中<br>进行查找。显然这几个目录是没有的，理所当然不会找到！</p>
-<p>armeabi 针对的是旧的arm v5 cpu, armeabi-v7a是针对有浮点运算或高级扩展功能的arm v7 cpu。armeabi 和<br>armeabi-v7a是类似的指令集，后者是前者的增强类型，在运行速度，效率上有所的高。这两种都是32位指令集。<br>可以相互兼容。<br>arm64-v8a 即是比v7更新的64位架构处理器，这种架构中包含两个执行状态aarch32和aarch64。所以这种处理器<br>可以支持32位的 so。</p>
-<p>那为什么上面不查找我的armeabi 和 armeabi-v7a目录呢？<br>这是因为Android 查找 so 是有规则的！<br>Android4.x, 只要能找到so，就可以运行，so可以在armeabi,armeabi-v7a, arm64-v8a，so位置可以很随意；<br>Android5.x，检查更加严格，会只有和芯片型号对应目录的so会安装到手机中（当没有与其型号对应的目录会将<br>armeabi 等32 位的so安装进去）；<br>Android6.x，检查更加严格；<br>Android7.x，执行更严格的安全检查，禁止使用系统目录的内容。所以如果希望在7.x以上版本，需要把系统目录<br>的libsqlite.so拷贝出来，也放在自己app对应指令目录下；</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>知道了上面的错误原因，解决起来就比较简单，这里有两个解决方案：</p>
-<ol>
-<li>创建与cpu型号对应的目录，然后将其对应的 so 放进去；</li>
-<li>修改build.gradle文件，设置支持的动态库架构；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ndk &#123;</div><div class="line">    // 设置支持的SO库架构</div><div class="line">    abiFilters &apos;armeabi&apos; , &apos;arm64-v8a&apos; //, &apos;x86&apos;, &apos;armeabi-v7a&apos;, &apos;x86_64&apos;, &apos;arm64-v8a&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>查看设备的CPU架构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb shell</div><div class="line">cat /proc/cpuinfo</div></pre></td></tr></table></figure></p>
-<p>然后看其最上面一行的 Processor 信息。<br>我的CPU信息是：Processor : AArch64 Processor rev 4 (aarch64) 显然是64位的(aarch32是armv7, aarch64是<br>armv8)，这样也就不难理解为什么上面查找的几个目录都是64位的。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/01/TAB页面实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1253,346 +1713,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/01/LayoutInflater使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/01/LayoutInflater使用/" itemprop="url">
-                  LayoutInflater使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T14:32:24+08:00">
-                2017-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UI绘制/" itemprop="url" rel="index">
-                    <span itemprop="name">UI绘制</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>在日常开发中，会常用（Fragment）LayoutInflater这个类来加载layout布局文件，并返回对应的View对象！</p>
-<h2 id="获得LayoutInflater的三种方式"><a href="#获得LayoutInflater的三种方式" class="headerlink" title="获得LayoutInflater的三种方式"></a>获得LayoutInflater的三种方式</h2><ol>
-<li>使用context.getSystemService()方式获得<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">LayoutInflater localinflater =</div><div class="line">        (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div><div class="line">``` </div><div class="line"></div><div class="line">2. 使用LayoutInflater.from(context)方式</div><div class="line">其实现原码为：</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>/**</p>
-<ul>
-<li>Obtains the LayoutInflater from the given context.<br>*/<br>public static LayoutInflater from(Context context) {<br> LayoutInflater LayoutInflater =<pre><code>(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-</code></pre> if (LayoutInflater == null) {<pre><code>throw new AssertionError(&quot;LayoutInflater not found.&quot;);
-</code></pre> }<br> return LayoutInflater;<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">通过上面的代码可以发现，这种方式核心也是使用getSystemService() 方式获取的！</div><div class="line"></div><div class="line">3. 使用getLayoutInflater()</div><div class="line">在Activity或是Fragment中可以通过getLayoutInflater()来获取LayoutInflater,如下是其实现原理：</div><div class="line">Activity getLayoutInflater()源码</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>// Activity<br>/**</p>
-<ul>
-<li>Convenience for calling</li>
-<li>{@link android.view.Window#getLayoutInflater}.<br>*/<br>@NonNull<br>public LayoutInflater getLayoutInflater() {<br> return getWindow().getLayoutInflater();<br>}<br>public PhoneWindow(Context context) {<br> super(context);<br> mLayoutInflater = LayoutInflater.from(context);<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Fragment getLayoutInflater()源码:</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>// Fragment<br>/**</p>
-<ul>
-<li>Hack so that DialogFragment can make its Dialog before creating</li>
-<li>its views, and the view construction can use the dialog’s context for</li>
-<li>inflation.  Maybe this should become a public API. Note sure.</li>
-<li>@hide<br><em>/<br>@RestrictTo(LIBRARY_GROUP)<br>public LayoutInflater getLayoutInflater(Bundle savedInstanceState) {<br> LayoutInflater result = mHost.onGetLayoutInflater();<br> getChildFragmentManager(); // Init if needed; use raw implementation below.<br> LayoutInflaterCompat.setFactory(result, mChildFragmentManager.getLayoutInflaterFactory());<br> return result;<br>}<br>// FragmentHostCallback<br>/*</em></li>
-<li>Return a {@link LayoutInflater}.</li>
-<li>See {@link Activity#getLayoutInflater()}.<br>*/<br>public LayoutInflater onGetLayoutInflater() {<br> return (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);<br>}  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getLayoutInflater()这种方式底层同样使用的是getSystemService的方式实现的！</div><div class="line"></div><div class="line">**&lt;font color=#ff4500&gt;由上可知，不论哪种方式获取LayoutInflater,其本质都是使用context.getSystemService()实现的！&lt;/font&gt;**</div><div class="line"></div><div class="line">## LayoutInflater中inflate方法参数解析</div><div class="line">inflate有四个重载的方法，如下所示：</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>public View inflate (int resource, ViewGroup root)<br>public View inflate (XmlPullParser parser, ViewGroup root)<br>public View inflate (XmlPullParser parser, ViewGroup root, boolean attachToRoot)<br>public View inflate (int resource, ViewGroup root, boolean attachToRoot)<br>```<br>这里主要说下最后一上重载方法参数的含义：<br>resource 不必多说，就是layout资源ID；<br>root 指的是将要加载布局的根视图；<br>attachToRoot 指的是这个View是否需要root中，即View是否会被加载到root中；</p>
-<p><strong><font color="#ff4500">如果后面attachToRoot为true的时候，这个布局会被解析并加载到root下面；<br>如果为false,则会依照root去解析该xml并返回view,但是这个view不会被加载到root里，即将xml解析了，并依照root的类型给生成的view 设置一个LayoutParams，但不将其add到root里</font></strong>  </p>
-<p><a href="http://blog.csdn.net/qq_26263231/article/details/54137624" target="_blank" rel="external">实例</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/01/Android应用退出方式总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/01/Android应用退出方式总结/" itemprop="url">
-                  Android应用退出方式总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T14:25:24+08:00">
-                2017-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-Note</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="容器式"><a href="#容器式" class="headerlink" title="容器式"></a>容器式</h2><p>新建一个容器，存放所有打开的Activity。在程序注销或需要退出时，循环finish打开的activity。以将所有页面<br>Activity关闭。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import android.app.Activity;</div><div class="line">import android.os.Bundle;</div><div class="line"></div><div class="line">public class BaseActivity extends Activity &#123;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        // 添加Activity到堆栈</div><div class="line">        AtyContainer.getInstance().addActivity(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onDestroy() &#123;</div><div class="line">        super.onDestroy();</div><div class="line">        // 结束Activity&amp;从栈中移除该Activity</div><div class="line">        AtyContainer.getInstance().removeActivity(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class AtyContainer &#123;</div><div class="line"></div><div class="line">    private AtyContainer() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private static AtyContainer instance = new AtyContainer();</div><div class="line">    private static List&lt;Activity&gt; activityStack = new ArrayList&lt;Activity&gt;();</div><div class="line"></div><div class="line">    public static AtyContainer getInstance() &#123;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void addActivity(Activity aty) &#123;</div><div class="line">        activityStack.add(aty);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void removeActivity(Activity aty) &#123;</div><div class="line">        activityStack.remove(aty);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 结束所有Activity</div><div class="line">     */</div><div class="line">    public void finishAllActivity() &#123;</div><div class="line">        for (int i = 0, size = activityStack.size(); i &lt; size; i++) &#123;</div><div class="line">            if (null != activityStack.get(i)) &#123;</div><div class="line">                activityStack.get(i).finish();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        activityStack.clear();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这种方法比较简单，但是可以看到activityStack持有这Activity的强引用，也就是说当某个Activity异常退出时，<br>activityStack没有即使释放掉引用，可能会导致内存问题</p>
-<h2 id="广播式"><a href="#广播式" class="headerlink" title="广播式"></a>广播式</h2><p>这种方式比容器式稍好，它是在退出时发送一个退出广播。在Activity收到广播后后进页面finish。因此我们需要<br>在Activity中注册广播，为了减少代码编写，可以将此功能放到Activity基类中进行处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">public class BaseActivity extends Activity &#123;</div><div class="line"></div><div class="line">    private static final String EXITACTION = &quot;action.exit&quot;;</div><div class="line"></div><div class="line">    private ExitReceiver exitReceiver = new ExitReceiver();</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        IntentFilter filter = new IntentFilter();</div><div class="line">        filter.addAction(EXITACTION);</div><div class="line">        registerReceiver(exitReceiver, filter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onDestroy() &#123;</div><div class="line">        super.onDestroy();</div><div class="line">        unregisterReceiver(exitReceiver);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class ExitReceiver extends BroadcastReceiver &#123;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void onReceive(Context context, Intent intent) &#123;</div><div class="line">            BaseActivity.this.finish();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="进程式"><a href="#进程式" class="headerlink" title="进程式"></a>进程式</h2><p>这种方式比较粗爆，在退出时杀掉应用进程。但是这种方式不好，在不同的rom上会引发出不同的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android.os.Process.killProcess(android.os.Process.myPid());</div><div class="line"></div><div class="line"></div><div class="line">System.exit(0);</div><div class="line"></div><div class="line"></div><div class="line">ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);</div><div class="line">manager.killBackgroundProcesses(getPackageName());</div></pre></td></tr></table></figure></p>
-<h2 id="RS-式"><a href="#RS-式" class="headerlink" title="RS 式"></a>RS 式</h2><p>RS即Receiver + SingleTask。Activity有四种加载模式，而singleTask就是其中的一种，使用这个模式之后，<br>当startActivity时，它先会在当前栈中查询是否存在Activity的实例，如果存在，则将其至于栈顶，并将其之上<br>的所有Activity移除栈。我们打开一个app，首先是一个splash页面，然后会finish掉splash页面。跳转到主页。<br>然后会在主页进行N次的跳转，期间会产生数量不定的Activity，有的被销毁，有的驻留在栈中，但是栈底永远是<br>我们的HomeActivity。这样就让问题变得简单很多了，我们只需如下两步：</p>
-<ol>
-<li>在HomeActivity注册一个退出广播，和第二个广播式一样，但是这里只需要在HomeActivity一个页面注册即可。</li>
-<li>设置HomeActivity的启动模式为singleTask。</li>
-</ol>
-<p>当我们需要退出的时候只需要startActivity(this,HomeActivity,class)， 再发送一个退出广播。上面代码首先<br>会把栈中HomeActivity之上的所有Activity移除出栈，然后接到广播finish自己。一切OK ! 没有弹框，不用考虑<br>机型Rom适配</p>
-<h2 id="SingleTask-式"><a href="#SingleTask-式" class="headerlink" title="SingleTask 式"></a>SingleTask 式</h2><p>上面的RS式注册广播略显麻烦，这里有一种更简单的方式，思路也很简单。</p>
-<ol>
-<li><p>设置MainActivity的加载模式为singleTask  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:launchMode=&quot;singleTask&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>重写MainActivity中的onNewIntent方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">private static final String TAG_EXIT = &quot;exit&quot;;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onNewIntent(Intent intent) &#123;</div><div class="line">        super.onNewIntent(intent);</div><div class="line">        if (intent != null) &#123;</div><div class="line">            boolean isExit = intent.getBooleanExtra(TAG_EXIT, false);</div><div class="line">            if (isExit) &#123;</div><div class="line">                this.finish();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>需要退出时在Intent中添加退出的tag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent(this,MainActivity.class);</div><div class="line">intent.putExtra(MainActivity.TAG_EXIT, true);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="懒人式"><a href="#懒人式" class="headerlink" title="懒人式"></a>懒人式</h2><p>这种方式只适合在Home页面退出。这种方式更加简单，只需要如下两步操作：</p>
-<ol>
-<li>将MainActivity设置为singleTask</li>
-<li>将退出出口放置在MainActivity</li>
-</ol>
-<p>然后双击back退出</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
           
           </div>
@@ -1635,7 +1762,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1644,7 +1771,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -1653,7 +1780,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
