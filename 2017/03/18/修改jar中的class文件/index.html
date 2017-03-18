@@ -88,27 +88,21 @@
 
 
 <meta name="description" content="在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：
-
 打开jar文件使用jd-gui或eclipse打开jar中的class文件。
-
-生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致">
+生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修改jar中的class文件">
 <meta property="og:url" content="https://pillowzhou.github.io/2017/03/18/修改jar中的class文件/index.html">
 <meta property="og:site_name" content="Develop Note">
 <meta property="og:description" content="在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：
-
 打开jar文件使用jd-gui或eclipse打开jar中的class文件。
-
-生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致">
-<meta property="og:updated_time" content="2017-03-18T14:37:17.000Z">
+生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），">
+<meta property="og:updated_time" content="2017-03-18T14:40:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改jar中的class文件">
 <meta name="twitter:description" content="在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：
-
 打开jar文件使用jd-gui或eclipse打开jar中的class文件。
-
-生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致">
+生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），">
 
 
 
@@ -355,21 +349,13 @@
       
 
       
-        <p>在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，<br>再导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：</p>
-<ol>
-<li><p>打开jar文件<br>使用jd-gui或eclipse打开jar中的class文件。</p>
-</li>
-<li><p>生成java文件<br>在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），并将步骤1中打开的class文件的内容，复制过来。</p>
-</li>
-<li><p>添加缺失引用<br>复制过来的class文件有很多引用是缺失的，在新建的project中添加引用资源，引用内容不用实现。尽量不要动待修改的class文件。</p>
-</li>
-<li><p>修改代码<br>解决掉引用问题，可以修改代码，实现自已想要的需求。</p>
-</li>
-<li><p>生成class<br>将修改的java文件编译生成class文件。</p>
-</li>
-<li><p>将class文件打包进jar<br>将生成好的class文件打包进jar，并替换掉之前的class文件（可使用命令：jar uvf test.jar com/test/test.class ）</p>
-</li>
-</ol>
+        <p>在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再<br>导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：</p>
+<h4 id="打开jar文件"><a href="#打开jar文件" class="headerlink" title="打开jar文件"></a>打开jar文件</h4><p>使用jd-gui或eclipse打开jar中的class文件。</p>
+<h4 id="生成java文件"><a href="#生成java文件" class="headerlink" title="生成java文件"></a>生成java文件</h4><p>在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），并将步骤1中打开的class文件的内容，复制过来。</p>
+<h4 id="添加缺失引用"><a href="#添加缺失引用" class="headerlink" title="添加缺失引用"></a>添加缺失引用</h4><p>复制过来的class文件有很多引用是缺失的，在新建的project中添加引用资源，引用内容不用实现。尽量不要动待修改的class文件。</p>
+<h4 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a>修改代码</h4><p>解决掉引用问题，可以修改代码，实现自已想要的需求。</p>
+<h4 id="生成class"><a href="#生成class" class="headerlink" title="生成class"></a>生成class</h4><p>将修改的java文件编译生成class文件。</p>
+<h4 id="将class文件打包进jar"><a href="#将class文件打包进jar" class="headerlink" title="将class文件打包进jar"></a>将class文件打包进jar</h4><p>将生成好的class文件打包进jar，并替换掉之前的class文件（可使用命令：jar uvf test.jar com/test/test.class ）</p>
 
       
     </div>
@@ -461,8 +447,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -520,6 +515,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#打开jar文件"><span class="nav-number">1.</span> <span class="nav-text">打开jar文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成java文件"><span class="nav-number">2.</span> <span class="nav-text">生成java文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加缺失引用"><span class="nav-number">3.</span> <span class="nav-text">添加缺失引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改代码"><span class="nav-number">4.</span> <span class="nav-text">修改代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成class"><span class="nav-number">5.</span> <span class="nav-text">生成class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将class文件打包进jar"><span class="nav-number">6.</span> <span class="nav-text">将class文件打包进jar</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
