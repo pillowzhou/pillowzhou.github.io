@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Activity," />
 
 
 
@@ -87,12 +87,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Develop Note">
-<meta property="og:url" content="https://pillowzhou.github.io/archives/2017/03/page/2/index.html">
+<meta name="description" content="有些需求需进入到页面后更改Activity的亮度，退出页面后恢复到之前的亮度。通过更改WindowManager.LayoutParams的screenBrightness可以达到这个效果。screenBrightness的默认取值为-1。screenBrightness的有效取值范围为0-1，当其值小于0时，即使用默认屏幕亮度。123WindowManager.LayoutParams wl =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="更改Activity亮度">
+<meta property="og:url" content="https://pillowzhou.github.io/2017/03/18/更改Activity亮度/index.html">
 <meta property="og:site_name" content="Develop Note">
+<meta property="og:description" content="有些需求需进入到页面后更改Activity的亮度，退出页面后恢复到之前的亮度。通过更改WindowManager.LayoutParams的screenBrightness可以达到这个效果。screenBrightness的默认取值为-1。screenBrightness的有效取值范围为0-1，当其值小于0时，即使用默认屏幕亮度。123WindowManager.LayoutParams wl =">
+<meta property="og:updated_time" content="2017-03-18T14:30:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Develop Note">
+<meta name="twitter:title" content="更改Activity亮度">
+<meta name="twitter:description" content="有些需求需进入到页面后更改Activity的亮度，退出页面后恢复到之前的亮度。通过更改WindowManager.LayoutParams的screenBrightness可以达到这个效果。screenBrightness的默认取值为-1。screenBrightness的有效取值范围为0-1，当其值小于0时，即使用默认屏幕亮度。123WindowManager.LayoutParams wl =">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://pillowzhou.github.io/archives/2017/03/page/2/"/>
+  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/18/更改Activity亮度/"/>
 
 
 
 
 
-  <title> 归档 | Develop Note </title>
+  <title> 更改Activity亮度 | Develop Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -151,7 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,181 +239,172 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 14 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/更改Activity亮度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                更改Activity亮度
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T22:30:24+08:00">
+                2017-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>有些需求需进入到页面后更改Activity的亮度，退出页面后恢复到之前的亮度。通过更改<br>WindowManager.LayoutParams的screenBrightness可以达到这个效果。screenBrightness<br>的默认取值为-1。screenBrightness的有效取值范围为0-1，当其值小于0时，即使用默认屏幕亮度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">WindowManager.LayoutParams wl = getWindow().getAttributes();</div><div class="line">wl.screenBrightness = 0.5f;</div><div class="line">getWindow().setAttributes(wl);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Activity/" rel="tag"># Activity</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/18/Android方法数查看/" rel="next" title="Android 方法数查看">
+                <i class="fa fa-chevron-left"></i> Android 方法数查看
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/09/Android在锁屏状态下显示Activity/" itemprop="url">
-              
-                <span itemprop="name">Android在锁屏状态下弹出Activity!</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-09T23:11:24+08:00"
-              content="2017-03-09" >
-          03-09
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/01/TAB页面实现/" itemprop="url">
-              
-                <span itemprop="name">TAB页面实现</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-01T14:34:24+08:00"
-              content="2017-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/01/LayoutInflater使用/" itemprop="url">
-              
-                <span itemprop="name">LayoutInflater使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-01T14:32:24+08:00"
-              content="2017-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/01/Android应用退出方式总结/" itemprop="url">
-              
-                <span itemprop="name">Android应用退出方式总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-01T14:25:24+08:00"
-              content="2017-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/03/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/03/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
+    </div>
+  </div>
 
           
           </div>
@@ -417,6 +412,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -600,11 +599,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
