@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jar," />
+  <meta name="keywords" content="Activity," />
 
 
 
@@ -87,22 +87,43 @@
 
 
 
-<meta name="description" content="在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：
-打开jar文件使用jd-gui或eclipse打开jar中的class文件。
-生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），">
+<meta name="description" content="隐藏标题栏（titlebar）
+在代码中隐藏标题栏
+1requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+在Manifest中Application或Activity中配置主题样式
+1android:theme=&amp;quot;@android:style/Theme.NoTitleBar&amp;quot;
+
+
+隐藏状态栏（statusbar）
+在Manifest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改jar中的class文件">
-<meta property="og:url" content="https://pillowzhou.github.io/2017/03/18/修改jar中的class文件/index.html">
+<meta property="og:title" content="Activity全屏相关操作">
+<meta property="og:url" content="https://pillowzhou.github.io/2017/03/18/Activity全屏相关操作/index.html">
 <meta property="og:site_name" content="Develop Note">
-<meta property="og:description" content="在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：
-打开jar文件使用jd-gui或eclipse打开jar中的class文件。
-生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），">
-<meta property="og:updated_time" content="2017-03-18T14:40:58.000Z">
+<meta property="og:description" content="隐藏标题栏（titlebar）
+在代码中隐藏标题栏
+1requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+在Manifest中Application或Activity中配置主题样式
+1android:theme=&amp;quot;@android:style/Theme.NoTitleBar&amp;quot;
+
+
+隐藏状态栏（statusbar）
+在Manifest">
+<meta property="og:updated_time" content="2017-03-18T14:58:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改jar中的class文件">
-<meta name="twitter:description" content="在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：
-打开jar文件使用jd-gui或eclipse打开jar中的class文件。
-生成java文件在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），">
+<meta name="twitter:title" content="Activity全屏相关操作">
+<meta name="twitter:description" content="隐藏标题栏（titlebar）
+在代码中隐藏标题栏
+1requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+在Manifest中Application或Activity中配置主题样式
+1android:theme=&amp;quot;@android:style/Theme.NoTitleBar&amp;quot;
+
+
+隐藏状态栏（statusbar）
+在Manifest">
 
 
 
@@ -130,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/18/修改jar中的class文件/"/>
+  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/18/Activity全屏相关操作/"/>
 
 
 
 
 
-  <title> 修改jar中的class文件 | Develop Note </title>
+  <title> Activity全屏相关操作 | Develop Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/修改jar中的class文件/">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/Activity全屏相关操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wooden fish">
@@ -276,7 +297,7 @@
             
             
               
-                修改jar中的class文件
+                Activity全屏相关操作
               
             
           </h1>
@@ -291,7 +312,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T22:35:24+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T22:58:24+08:00">
                 2017-03-18
               </time>
             
@@ -349,13 +370,25 @@
       
 
       
-        <p>在工作中有可能会遇到需要修改jar的情况。正常情况下，如果有源代码的话，就比较容易，直接修改源代码，再<br>导出新的jar文件即可。但是如果没有源代码就比较麻烦了，下面记录了没有源代码的情况修改jar的方法和步骤：</p>
-<h4 id="打开jar文件"><a href="#打开jar文件" class="headerlink" title="打开jar文件"></a>打开jar文件</h4><p>使用jd-gui或eclipse打开jar中的class文件。</p>
-<h4 id="生成java文件"><a href="#生成java文件" class="headerlink" title="生成java文件"></a>生成java文件</h4><p>在Eclipse中新建project，然后添加对应的java文件（包名类名需与jar中的一致），并将步骤1中打开的class文件的内容，复制过来。</p>
-<h4 id="添加缺失引用"><a href="#添加缺失引用" class="headerlink" title="添加缺失引用"></a>添加缺失引用</h4><p>复制过来的class文件有很多引用是缺失的，在新建的project中添加引用资源，引用内容不用实现。尽量不要动待修改的class文件。</p>
-<h4 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a>修改代码</h4><p>解决掉引用问题，可以修改代码，实现自已想要的需求。</p>
-<h4 id="生成class"><a href="#生成class" class="headerlink" title="生成class"></a>生成class</h4><p>将修改的java文件编译生成class文件。</p>
-<h4 id="将class文件打包进jar"><a href="#将class文件打包进jar" class="headerlink" title="将class文件打包进jar"></a>将class文件打包进jar</h4><p>将生成好的class文件打包进jar，并替换掉之前的class文件（可使用命令：jar uvf test.jar com/test/test.class ）</p>
+        <h2 id="隐藏标题栏（titlebar）"><a href="#隐藏标题栏（titlebar）" class="headerlink" title="隐藏标题栏（titlebar）"></a>隐藏标题栏（titlebar）</h2><ol>
+<li><p>在代码中隐藏标题栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">requestWindowFeature(Window.FEATURE_NO_TITLE);</div></pre></td></tr></table></figure>
+</li>
+<li><p>在Manifest中Application或Activity中配置主题样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:theme=&quot;@android:style/Theme.NoTitleBar&quot;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="隐藏状态栏（statusbar）"><a href="#隐藏状态栏（statusbar）" class="headerlink" title="隐藏状态栏（statusbar）"></a>隐藏状态栏（statusbar）</h2><ol>
+<li><p>在Manifest中Activity中配置主题样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:theme=&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在代码中隐藏状态栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏状态栏</div><div class="line"> */</div><div class="line">private void hideStatusBar() &#123;</div><div class="line">    //定义全屏参数</div><div class="line">    int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;</div><div class="line">    //获得当前窗体对象</div><div class="line">    Window window = MainActivity.this.getWindow();</div><div class="line">    //设置当前窗体为全屏显示</div><div class="line">    window.setFlags(flag, flag);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="隐藏导航栏（NavigationBar）"><a href="#隐藏导航栏（NavigationBar）" class="headerlink" title="隐藏导航栏（NavigationBar）"></a>隐藏导航栏（NavigationBar）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏导航栏,可返回</div><div class="line"> */</div><div class="line">private void hideNavigationBarCanBack() &#123;</div><div class="line">    View decorView = getWindow().getDecorView();</div><div class="line">    int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION</div><div class="line">           | View.SYSTEM_UI_FLAG_FULLSCREEN;</div><div class="line">    decorView.setSystemUiVisibility(uiOptions);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="同时隐藏状态栏和导航栏"><a href="#同时隐藏状态栏和导航栏" class="headerlink" title="同时隐藏状态栏和导航栏"></a>同时隐藏状态栏和导航栏</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏导航栏</div><div class="line"> */</div><div class="line">public void hideNavigationBarAndStatusBar() &#123;</div><div class="line">    int uiFlags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE</div><div class="line">            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</div><div class="line">            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</div><div class="line">            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar</div><div class="line">            | View.SYSTEM_UI_FLAG_FULLSCREEN; // hide status bar</div><div class="line"></div><div class="line">    if (android.os.Build.VERSION.SDK_INT &gt;= 19) &#123;</div><div class="line">        //SYSTEM_UI_FLAG_IMMERSIVE_STICKY: hide navigation bars - compatibility: building API level is lower thatn 19, use magic number directly for higher API target level</div><div class="line">            uiFlags |= 0x00001000;</div><div class="line">    &#125; else &#123;</div><div class="line">        uiFlags |= View.SYSTEM_UI_FLAG_LOW_PROFILE;</div><div class="line">    &#125;</div><div class="line">    getWindow().getDecorView().setSystemUiVisibility(uiFlags);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="动态全屏与退出"><a href="#动态全屏与退出" class="headerlink" title="动态全屏与退出"></a>动态全屏与退出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 动态设置全屏</div><div class="line"> */</div><div class="line">private void dynamicFullScreen()&#123;</div><div class="line">    WindowManager.LayoutParams attrs = getWindow().getAttributes();</div><div class="line">    attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;</div><div class="line">    getWindow().setAttributes(attrs);</div><div class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 动态退出全屏</div><div class="line"> */</div><div class="line">private void dynamicExitFullScreen()&#123;</div><div class="line">    WindowManager.LayoutParams attrs = getWindow().getAttributes();</div><div class="line">    attrs.flags &amp;= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);</div><div class="line">    getWindow().setAttributes(attrs);</div><div class="line">    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -379,7 +412,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jar/" rel="tag"># jar</a>
+            <a href="/tags/Activity/" rel="tag"># Activity</a>
           
         </div>
       
@@ -392,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/18/更改Activity亮度/" rel="next" title="更改Activity亮度">
-                <i class="fa fa-chevron-left"></i> 更改Activity亮度
+              <a href="/2017/03/18/修改jar中的class文件/" rel="next" title="修改jar中的class文件">
+                <i class="fa fa-chevron-left"></i> 修改jar中的class文件
               </a>
             
           </div>
@@ -401,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/18/Activity全屏相关操作/" rel="prev" title="Activity全屏相关操作">
-                Activity全屏相关操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#打开jar文件"><span class="nav-number">1.</span> <span class="nav-text">打开jar文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成java文件"><span class="nav-number">2.</span> <span class="nav-text">生成java文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加缺失引用"><span class="nav-number">3.</span> <span class="nav-text">添加缺失引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改代码"><span class="nav-number">4.</span> <span class="nav-text">修改代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成class"><span class="nav-number">5.</span> <span class="nav-text">生成class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将class文件打包进jar"><span class="nav-number">6.</span> <span class="nav-text">将class文件打包进jar</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#隐藏标题栏（titlebar）"><span class="nav-number">1.</span> <span class="nav-text">隐藏标题栏（titlebar）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐藏状态栏（statusbar）"><span class="nav-number">2.</span> <span class="nav-text">隐藏状态栏（statusbar）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐藏导航栏（NavigationBar）"><span class="nav-number">3.</span> <span class="nav-text">隐藏导航栏（NavigationBar）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同时隐藏状态栏和导航栏"><span class="nav-number">4.</span> <span class="nav-text">同时隐藏状态栏和导航栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态全屏与退出"><span class="nav-number">5.</span> <span class="nav-text">动态全屏与退出</span></a></li></ol></div>
             
 
           </div>

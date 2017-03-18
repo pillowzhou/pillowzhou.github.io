@@ -247,6 +247,164 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/Activity全屏相关操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/18/Activity全屏相关操作/" itemprop="url">
+                  Activity全屏相关操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T22:58:24+08:00">
+                2017-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="隐藏标题栏（titlebar）"><a href="#隐藏标题栏（titlebar）" class="headerlink" title="隐藏标题栏（titlebar）"></a>隐藏标题栏（titlebar）</h2><ol>
+<li><p>在代码中隐藏标题栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">requestWindowFeature(Window.FEATURE_NO_TITLE);</div></pre></td></tr></table></figure>
+</li>
+<li><p>在Manifest中Application或Activity中配置主题样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:theme=&quot;@android:style/Theme.NoTitleBar&quot;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="隐藏状态栏（statusbar）"><a href="#隐藏状态栏（statusbar）" class="headerlink" title="隐藏状态栏（statusbar）"></a>隐藏状态栏（statusbar）</h2><ol>
+<li><p>在Manifest中Activity中配置主题样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:theme=&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在代码中隐藏状态栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏状态栏</div><div class="line"> */</div><div class="line">private void hideStatusBar() &#123;</div><div class="line">    //定义全屏参数</div><div class="line">    int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;</div><div class="line">    //获得当前窗体对象</div><div class="line">    Window window = MainActivity.this.getWindow();</div><div class="line">    //设置当前窗体为全屏显示</div><div class="line">    window.setFlags(flag, flag);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="隐藏导航栏（NavigationBar）"><a href="#隐藏导航栏（NavigationBar）" class="headerlink" title="隐藏导航栏（NavigationBar）"></a>隐藏导航栏（NavigationBar）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏导航栏,可返回</div><div class="line"> */</div><div class="line">private void hideNavigationBarCanBack() &#123;</div><div class="line">    View decorView = getWindow().getDecorView();</div><div class="line">    int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION</div><div class="line">           | View.SYSTEM_UI_FLAG_FULLSCREEN;</div><div class="line">    decorView.setSystemUiVisibility(uiOptions);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="同时隐藏状态栏和导航栏"><a href="#同时隐藏状态栏和导航栏" class="headerlink" title="同时隐藏状态栏和导航栏"></a>同时隐藏状态栏和导航栏</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 隐藏导航栏</div><div class="line"> */</div><div class="line">public void hideNavigationBarAndStatusBar() &#123;</div><div class="line">    int uiFlags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE</div><div class="line">            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</div><div class="line">            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</div><div class="line">            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar</div><div class="line">            | View.SYSTEM_UI_FLAG_FULLSCREEN; // hide status bar</div><div class="line"></div><div class="line">    if (android.os.Build.VERSION.SDK_INT &gt;= 19) &#123;</div><div class="line">        //SYSTEM_UI_FLAG_IMMERSIVE_STICKY: hide navigation bars - compatibility: building API level is lower thatn 19, use magic number directly for higher API target level</div><div class="line">            uiFlags |= 0x00001000;</div><div class="line">    &#125; else &#123;</div><div class="line">        uiFlags |= View.SYSTEM_UI_FLAG_LOW_PROFILE;</div><div class="line">    &#125;</div><div class="line">    getWindow().getDecorView().setSystemUiVisibility(uiFlags);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="动态全屏与退出"><a href="#动态全屏与退出" class="headerlink" title="动态全屏与退出"></a>动态全屏与退出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 动态设置全屏</div><div class="line"> */</div><div class="line">private void dynamicFullScreen()&#123;</div><div class="line">    WindowManager.LayoutParams attrs = getWindow().getAttributes();</div><div class="line">    attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;</div><div class="line">    getWindow().setAttributes(attrs);</div><div class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 动态退出全屏</div><div class="line"> */</div><div class="line">private void dynamicExitFullScreen()&#123;</div><div class="line">    WindowManager.LayoutParams attrs = getWindow().getAttributes();</div><div class="line">    attrs.flags &amp;= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);</div><div class="line">    getWindow().setAttributes(attrs);</div><div class="line">    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/修改jar中的class文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1539,181 +1697,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/pjsip源码编译/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/12/pjsip源码编译/" itemprop="url">
-                  pjsip源码编译
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T15:48:24+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/pjsip/" itemprop="url" rel="index">
-                    <span itemprop="name">pjsip</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
-<li>搭建Android NDK(我使用的是<a href="&quot;http://dl.google.com/android/ndk/android-ndk-r10e-darwin-x86_64.bin&quot;">android-ndk-r10</a>)编译环境</li>
-<li><p>搭建SWIG环境，SWIG依赖PCRE，需先下载安装PCRE<br>下载<a href="&quot;https://nchc.dl.sourceforge.net/project/pcre/pcre/8.39/pcre-8.39.tar.gz&quot;">PCRE</a><br>解压缩软件包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xvf pcre.tar.gz</div></pre></td></tr></table></figure>
-<p>执行命令安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo ./configure --prefix=/opt/pcre</div><div class="line">sudo make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<p>下载<a href="&quot;https://nchc.dl.sourceforge.net/project/swig/swig/swig-3.0.11/swig-3.0.11.tar.gz&quot;">SWIG</a><br>解压缩软件包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xvf pcre.tar.gz</div></pre></td></tr></table></figure>
-<p>执行命令安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo  ./configure --with-pcre-prefix=/opt/pcre</div><div class="line">sudo make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="编译准备"><a href="#编译准备" class="headerlink" title="编译准备"></a>编译准备</h2><ol>
-<li>下载PJSIP源码</li>
-<li><p>在pjproject/pjlib/include/pj/目录下新建config_site.h文件并添加如下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/* Activate Android specific settings in the &apos;config_site_sample.h&apos; */</div><div class="line">#define PJ_CONFIG_ANDROID 1</div><div class="line">#include &lt;pj/config_site_sample.h&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改configure-android文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ANDROID_NDK_ROOT=&quot;/Users/xx/Library/android-ndk-r10e&quot;</div><div class="line">APP_PLATFORM=&quot;android-21&quot;</div><div class="line">TARGET_ABI=&quot;armeabi&quot;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>##开始编译</p>
-<ol>
-<li><p>进入pjsip目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /path/to/your/pjsip/dir</div></pre></td></tr></table></figure>
-</li>
-<li><p>执行configure</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure-android</div></pre></td></tr></table></figure>
-</li>
-<li><p>make</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make dep &amp;&amp; make clean &amp;&amp; make</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>##编译 telnet 接口的 pjsua 库<br> 进入到pjsip-apps/src/pjsua/android目录下，执行ndk-build<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd /path/to/your/pjsip/dir</div><div class="line">$ cd pjsip-apps/src/pjsua/android</div><div class="line">$ ndk-build</div></pre></td></tr></table></figure></p>
-<p>##编译 pjsua2 示例应用<br>  进入$PJDIR/pjsip-apps/src/swig目录下执行make, 生成测试代码和libpjsua2.so<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd /path/to/your/pjsip/dir</div><div class="line">$ cd pjsip-apps/src/swig</div><div class="line">$ make</div></pre></td></tr></table></figure></p>
-<p>##创建自已的 pjsua2 应用<br>  新建Android工程;将$PJDIR/pjsip-apps/src/swig目录下的代码和so拷贝<br>  到新建工程中；<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cd $YOUR_PROJECT_DIR</div><div class="line">$ cp -r $PJSIP_DIR/pjsip-apps/src/swig/java/android/src .</div><div class="line"></div><div class="line">$ cd $YOUR_PROJECT_DIR</div><div class="line">$ cp -r $PJSIP_DIR/pjsip-apps/src/swig/java/android/libs .</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1763,7 +1746,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
