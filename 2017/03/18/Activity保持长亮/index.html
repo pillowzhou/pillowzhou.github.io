@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="button,listview,click," />
+  <meta name="keywords" content="Activity," />
 
 
 
@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="listview 的item点击过快的时候，会打开两个详情页面。button 在快速点击后也可能造成多次响应。解决问题的思路是，在点击后的一段时间内再次点击时不进行处理，即只响应首次点击。
-具体实现如下：123456789public static boolean isFastDoubleClick()&amp;#123;  	long time = System.currentTimeMillis();">
+<meta name="description" content="方式1this.powerManager = (PowerManager) this .getSystemService(Context.POWER_SERVICE);this.wakeLock = this.powerManager.newWakeLock( PowerManager.FULL_WAKE_LOCK, “My Lock”);//保持常亮 this.wakeLock.acquire(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android快速点击导致多次执行的解决思路">
-<meta property="og:url" content="https://pillowzhou.github.io/2017/03/12/Android快速点击导致多次执行的解决思路/index.html">
+<meta property="og:title" content="Activity保持长亮">
+<meta property="og:url" content="https://pillowzhou.github.io/2017/03/18/Activity保持长亮/index.html">
 <meta property="og:site_name" content="Develop Note">
-<meta property="og:description" content="listview 的item点击过快的时候，会打开两个详情页面。button 在快速点击后也可能造成多次响应。解决问题的思路是，在点击后的一段时间内再次点击时不进行处理，即只响应首次点击。
-具体实现如下：123456789public static boolean isFastDoubleClick()&amp;#123;  	long time = System.currentTimeMillis();">
-<meta property="og:updated_time" content="2017-03-12T13:10:12.000Z">
+<meta property="og:description" content="方式1this.powerManager = (PowerManager) this .getSystemService(Context.POWER_SERVICE);this.wakeLock = this.powerManager.newWakeLock( PowerManager.FULL_WAKE_LOCK, “My Lock”);//保持常亮 this.wakeLock.acquire(">
+<meta property="og:updated_time" content="2017-03-18T15:06:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android快速点击导致多次执行的解决思路">
-<meta name="twitter:description" content="listview 的item点击过快的时候，会打开两个详情页面。button 在快速点击后也可能造成多次响应。解决问题的思路是，在点击后的一段时间内再次点击时不进行处理，即只响应首次点击。
-具体实现如下：123456789public static boolean isFastDoubleClick()&amp;#123;  	long time = System.currentTimeMillis();">
+<meta name="twitter:title" content="Activity保持长亮">
+<meta name="twitter:description" content="方式1this.powerManager = (PowerManager) this .getSystemService(Context.POWER_SERVICE);this.wakeLock = this.powerManager.newWakeLock( PowerManager.FULL_WAKE_LOCK, “My Lock”);//保持常亮 this.wakeLock.acquire(">
 
 
 
@@ -127,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/12/Android快速点击导致多次执行的解决思路/"/>
+  <link rel="canonical" href="https://pillowzhou.github.io/2017/03/18/Activity保持长亮/"/>
 
 
 
 
 
-  <title> Android快速点击导致多次执行的解决思路 | Develop Note </title>
+  <title> Activity保持长亮 | Develop Note </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/Android快速点击导致多次执行的解决思路/">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/Activity保持长亮/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wooden fish">
@@ -273,7 +270,7 @@
             
             
               
-                Android快速点击导致多次执行的解决思路
+                Activity保持长亮
               
             
           </h1>
@@ -288,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T20:36:24+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T22:30:24+08:00">
+                2017-03-18
               </time>
             
 
@@ -346,8 +343,9 @@
       
 
       
-        <p>listview 的item点击过快的时候，会打开两个详情页面。button 在快速点击后也可能造成多次响应。解决问题的思路是，在点击后的一段时间内再次点击时不进行处理，即只响应首次点击。</p>
-<p>具体实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public static boolean isFastDoubleClick()&#123;  </div><div class="line">	long time = System.currentTimeMillis();  </div><div class="line">	long timeD = time - lastClickTime;  </div><div class="line">	if(0&lt;timeD&amp;&amp;timeD&lt; 500)&#123;  </div><div class="line">		return true;  </div><div class="line">	&#125;  </div><div class="line">	lastClickTime = time;  </div><div class="line">	return false;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>方式1<br>this.powerManager = (PowerManager) this .getSystemService(Context.POWER_SERVICE);<br>this.wakeLock = this.powerManager.newWakeLock( PowerManager.FULL_WAKE_LOCK, “My Lock”);<br>//保持常亮 this.wakeLock.acquire();<br>//释放 this.wakeLock.release();</p>
+<p>方式2<br>getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);<br>清除时使用clearFlags</p>
+<p>方式3 androidmanifest中配置<br>这个设置android:keepScreenOn=”true”等同于FLAG_KEEP_SCREEN_ON。</p>
 
       
     </div>
@@ -371,11 +369,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/button/" rel="tag"># button</a>
-          
-            <a href="/tags/listview/" rel="tag"># listview</a>
-          
-            <a href="/tags/click/" rel="tag"># click</a>
+            <a href="/tags/Activity/" rel="tag"># Activity</a>
           
         </div>
       
@@ -388,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/12/jar与aar的区别/" rel="next" title="jar与aar的区别">
-                <i class="fa fa-chevron-left"></i> jar与aar的区别
+              <a href="/2017/03/18/Android方法数查看/" rel="next" title="Android 方法数查看">
+                <i class="fa fa-chevron-left"></i> Android 方法数查看
               </a>
             
           </div>
@@ -398,8 +392,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/12/子线程中使用Toast出错/" rel="prev" title="子线程中使用Toast出错">
-                子线程中使用Toast出错 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/18/更改Activity亮度/" rel="prev" title="更改Activity亮度">
+                更改Activity亮度 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
