@@ -247,6 +247,457 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/04/25/Android在锁屏状态下弹出Activity并点亮屏幕/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Android在锁屏状态下弹出Activity并点亮屏幕/" itemprop="url">
+                  Android在锁屏状态下弹出Activity并点亮屏幕
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T21:48:24+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Android 在锁屏状态中，有些情况下需要有较强的提示，这里仅仅使用通知栏不够，例如 来电，闹钟 等等。</p>
+<p>要实现这种功能很简单，只需要Activity中配置相应的WindowFlags即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |</div><div class="line">WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);</div></pre></td></tr></table></figure></p>
+<p>其中<br>FLAG_SHOW_WHEN_LOCKED 表示此Activity在锁屏的时候也可以显示出来；<br>FLAG_TURN_SCREEN_ON 表示显示此Window时把屏幕点亮；</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/04/25/Activity退出方式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Activity退出方式总结/" itemprop="url">
+                  Activity退出方式总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T21:44:24+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="容器式"><a href="#容器式" class="headerlink" title="容器式"></a>容器式</h2><p>新建一个容器，存放所有打开的Activity。在程序注销或需要退出时，循环finish打开的activity。以将所有页面<br>Activity关闭。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">import android.app.Activity;</div><div class="line">import android.os.Bundle;</div><div class="line"></div><div class="line">public class BaseActivity extends Activity &#123;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        // 添加Activity到堆栈</div><div class="line">        AtyContainer.getInstance().addActivity(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onDestroy() &#123;</div><div class="line">        super.onDestroy();</div><div class="line">        // 结束Activity&amp;从栈中移除该Activity</div><div class="line">        AtyContainer.getInstance().removeActivity(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class AtyContainer &#123;</div><div class="line"></div><div class="line">    private AtyContainer() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private static AtyContainer instance = new AtyContainer();</div><div class="line">    private static List&lt;Activity&gt; activityStack = new ArrayList&lt;Activity&gt;();</div><div class="line"></div><div class="line">    public static AtyContainer getInstance() &#123;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void addActivity(Activity aty) &#123;</div><div class="line">        activityStack.add(aty);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void removeActivity(Activity aty) &#123;</div><div class="line">        activityStack.remove(aty);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 结束所有Activity</div><div class="line">     */</div><div class="line">    public void finishAllActivity() &#123;</div><div class="line">        for (int i = 0, size = activityStack.size(); i &lt; size; i++) &#123;</div><div class="line">            if (null != activityStack.get(i)) &#123;</div><div class="line">                activityStack.get(i).finish();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        activityStack.clear();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这种方法比较简单，但是可以看到activityStack持有这Activity的强引用，也就是说当某个Activity异常退出时，<br>activityStack没有即使释放掉引用，可能会导致内存问题</p>
+<h2 id="广播式"><a href="#广播式" class="headerlink" title="广播式"></a>广播式</h2><p>这种方式比容器式稍好，它是在退出时发送一个退出广播。在Activity收到广播后后进页面finish。因此我们需要<br>在Activity中注册广播，为了减少代码编写，可以将此功能放到Activity基类中进行处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">public class BaseActivity extends Activity &#123;</div><div class="line"></div><div class="line">    private static final String EXITACTION = &quot;action.exit&quot;;</div><div class="line"></div><div class="line">    private ExitReceiver exitReceiver = new ExitReceiver();</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        IntentFilter filter = new IntentFilter();</div><div class="line">        filter.addAction(EXITACTION);</div><div class="line">        registerReceiver(exitReceiver, filter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onDestroy() &#123;</div><div class="line">        super.onDestroy();</div><div class="line">        unregisterReceiver(exitReceiver);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class ExitReceiver extends BroadcastReceiver &#123;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void onReceive(Context context, Intent intent) &#123;</div><div class="line">            BaseActivity.this.finish();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="进程式"><a href="#进程式" class="headerlink" title="进程式"></a>进程式</h2><p>这种方式比较粗爆，在退出时杀掉应用进程。但是这种方式不好，在不同的rom上会引发出不同的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android.os.Process.killProcess(android.os.Process.myPid());</div><div class="line"></div><div class="line"></div><div class="line">System.exit(0);</div><div class="line"></div><div class="line"></div><div class="line">ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);</div><div class="line">manager.killBackgroundProcesses(getPackageName());</div></pre></td></tr></table></figure></p>
+<h2 id="RS-式"><a href="#RS-式" class="headerlink" title="RS 式"></a>RS 式</h2><p>RS即Receiver + SingleTask。Activity有四种加载模式，而singleTask就是其中的一种，使用这个模式之后，<br>当startActivity时，它先会在当前栈中查询是否存在Activity的实例，如果存在，则将其至于栈顶，并将其之上<br>的所有Activity移除栈。我们打开一个app，首先是一个splash页面，然后会finish掉splash页面。跳转到主页。<br>然后会在主页进行N次的跳转，期间会产生数量不定的Activity，有的被销毁，有的驻留在栈中，但是栈底永远是<br>我们的HomeActivity。这样就让问题变得简单很多了，我们只需如下两步：</p>
+<ol>
+<li>在HomeActivity注册一个退出广播，和第二个广播式一样，但是这里只需要在HomeActivity一个页面注册即可。</li>
+<li>设置HomeActivity的启动模式为singleTask。</li>
+</ol>
+<p>当我们需要退出的时候只需要startActivity(this,HomeActivity,class)， 再发送一个退出广播。上面代码首先<br>会把栈中HomeActivity之上的所有Activity移除出栈，然后接到广播finish自己。一切OK ! 没有弹框，不用考虑<br>机型Rom适配</p>
+<h2 id="SingleTask-式"><a href="#SingleTask-式" class="headerlink" title="SingleTask 式"></a>SingleTask 式</h2><p>上面的RS式注册广播略显麻烦，这里有一种更简单的方式，思路也很简单。</p>
+<ol>
+<li><p>设置MainActivity的加载模式为singleTask  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:launchMode=&quot;singleTask&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>重写MainActivity中的onNewIntent方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">private static final String TAG_EXIT = &quot;exit&quot;;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onNewIntent(Intent intent) &#123;</div><div class="line">        super.onNewIntent(intent);</div><div class="line">        if (intent != null) &#123;</div><div class="line">            boolean isExit = intent.getBooleanExtra(TAG_EXIT, false);</div><div class="line">            if (isExit) &#123;</div><div class="line">                this.finish();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>需要退出时在Intent中添加退出的tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent(this,MainActivity.class);</div><div class="line">intent.putExtra(MainActivity.TAG_EXIT, true);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="懒人式"><a href="#懒人式" class="headerlink" title="懒人式"></a>懒人式</h2><p>这种方式只适合在Home页面退出。这种方式更加简单，只需要如下两步操作：</p>
+<ol>
+<li>将MainActivity设置为singleTask</li>
+<li>将退出出口放置在MainActivity</li>
+</ol>
+<p>然后双击back退出</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/19/DataBinding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/19/DataBinding/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T21:57:46+08:00">
+                2017-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>DataBinding 顾名思义就是数据绑定。它是谷歌最近提出的一种对于MVVM实现。MVVM是MVC架构的一种进化。它把MVC中的C层转换成了VM。VM也是一种Model,但是它相对于业务Model和数据Model，它是专门负责UI中需要展示的数据。DataBinding就是使用的ViewModel，它将数据源绑定到XML中</p>
+<h2 id="DataBinding优点"><a href="#DataBinding优点" class="headerlink" title="DataBinding优点"></a>DataBinding优点</h2><ol>
+<li>DataBinding可以提升开发效率<br> 去掉Activity &amp; Fragment中的部分UI代码；<br> XML变成UI的唯一真实来源；<br> 减少ViewID的定义；  </li>
+<li>功能强</li>
+<li>性能强<br> 自动生成代码，性能要超过手写代码，更加安全，很多问题会在编译期出现</li>
+</ol>
+<h2 id="DataBinding缺点"><a href="#DataBinding缺点" class="headerlink" title="DataBinding缺点"></a>DataBinding缺点</h2><ol>
+<li>错误信息不方便查看</li>
+<li>增加程序类的数量和方法数</li>
+</ol>
+<h2 id="启用DataBinding"><a href="#启用DataBinding" class="headerlink" title="启用DataBinding"></a>启用DataBinding</h2><p>在需要使用的Model的gradle文件中添加对DataBinding的支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">//...</div><div class="line">dataBinding &#123;</div><div class="line">    enabled = true</div><div class="line">&#125;</div><div class="line">//...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="DataBinding的基础用法"><a href="#DataBinding的基础用法" class="headerlink" title="DataBinding的基础用法"></a>DataBinding的基础用法</h2><ol>
+<li>修改layout文件<br>在原来的layout外面再套一个layout标签，并在其中添加data标签，如下所示<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;data&gt;</div><div class="line">    &lt;/data&gt;</div><div class="line">    &lt;!--原先的根节点（Root Element）--&gt;</div><div class="line">    &lt;LinearLayout&gt;</div><div class="line">    ....</div><div class="line">    &lt;/LinearLayout&gt;</div><div class="line">&lt;/layout&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>data标签下可以声明variable，variable中MVVM架构的重要一环，它做为桥梁，建立起了view和viewModel的联系。使ViewModel的数据能够展示到view上</p>
+<ol>
+<li><p>创建ViewModel<br>根据UI数据展示需要，创建model类，并生成get/set方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//代码</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取ViewBinding对象<br>获取ViewBinding对象一般使用DataBindingUtils取得</p>
+</li>
+<li><p>绑定Variable<br>将ViewModel数据绑定到XML中的variable，数据就会显示出来</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/Activity全屏相关操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -551,146 +1002,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/更改Activity亮度/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/18/更改Activity亮度/" itemprop="url">
-                  更改Activity亮度
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T22:30:24+08:00">
-                2017-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-Note</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有些需求需进入到页面后更改Activity的亮度，退出页面后恢复到之前的亮度。通过更改<br>WindowManager.LayoutParams的screenBrightness可以达到这个效果。screenBrightness<br>的默认取值为-1。screenBrightness的有效取值范围为0-1，当其值小于0时，即使用默认屏幕亮度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">WindowManager.LayoutParams wl = getWindow().getAttributes();</div><div class="line">wl.screenBrightness = 0.5f;</div><div class="line">getWindow().setAttributes(wl);</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/Activity保持长亮/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -793,6 +1104,146 @@
             <p>方式1<br>this.powerManager = (PowerManager) this .getSystemService(Context.POWER_SERVICE);<br>this.wakeLock = this.powerManager.newWakeLock( PowerManager.FULL_WAKE_LOCK, “My Lock”);<br>//保持常亮 this.wakeLock.acquire();<br>//释放 this.wakeLock.release();</p>
 <p>方式2<br>getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);<br>清除时使用clearFlags</p>
 <p>方式3 androidmanifest中配置<br>这个设置android:keepScreenOn=”true”等同于FLAG_KEEP_SCREEN_ON。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/18/更改Activity亮度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wooden fish">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Develop Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/18/更改Activity亮度/" itemprop="url">
+                  更改Activity亮度
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T22:30:24+08:00">
+                2017-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Android-Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有些需求需进入到页面后更改Activity的亮度，退出页面后恢复到之前的亮度。通过更改<br>WindowManager.LayoutParams的screenBrightness可以达到这个效果。screenBrightness<br>的默认取值为-1。screenBrightness的有效取值范围为0-1，当其值小于0时，即使用默认屏幕亮度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">WindowManager.LayoutParams wl = getWindow().getAttributes();</div><div class="line">wl.screenBrightness = 0.5f;</div><div class="line">getWindow().setAttributes(wl);</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1263,439 +1714,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/Android快速点击导致多次执行的解决思路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/12/Android快速点击导致多次执行的解决思路/" itemprop="url">
-                  Android快速点击导致多次执行的解决思路
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T20:36:24+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-Note</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>listview 的item点击过快的时候，会打开两个详情页面。button 在快速点击后也可能造成多次响应。解决问题的思路是，在点击后的一段时间内再次点击时不进行处理，即只响应首次点击。</p>
-<p>具体实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public static boolean isFastDoubleClick()&#123;  </div><div class="line">	long time = System.currentTimeMillis();  </div><div class="line">	long timeD = time - lastClickTime;  </div><div class="line">	if(0&lt;timeD&amp;&amp;timeD&lt; 500)&#123;  </div><div class="line">		return true;  </div><div class="line">	&#125;  </div><div class="line">	lastClickTime = time;  </div><div class="line">	return false;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/jar与aar的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/12/jar与aar的区别/" itemprop="url">
-                  jar与aar的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T20:24:24+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-Note</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用Android Studio对工程进行编译后，会同时生成jar与aar文件。</p>
-<h3 id="其位置分别位于："><a href="#其位置分别位于：" class="headerlink" title="其位置分别位于："></a>其位置分别位于：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jar: /build/intermediates/bundles/debug(release)/classes.jar</div><div class="line">aar: /build/outputs/aar/libraryname.aar</div></pre></td></tr></table></figure>
-<h3 id="两者的区别："><a href="#两者的区别：" class="headerlink" title="两者的区别："></a>两者的区别：</h3><p>jar 中只包含了class文件与清单文件。<br>aar中除了包含jar中的class文件还包含工程中使用的所有资源，class及res资源文件全部包含。<br>如果只是一个简单的类库那么使用生成的*.jar文件即可；如果你的是一个UI库，包含一些自己写的控件布局文件以及字体等资源文件那么就只能使用*.aar文件。</p>
-<h3 id="使用方式："><a href="#使用方式：" class="headerlink" title="使用方式："></a>使用方式：</h3><p>jar 拷贝到 libs 目录，并在gradle文件中添加  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">        compile fileTree(include: [&apos;*.jar&apos;], dir: &apos;libs&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>aar 有两种方式：<br>1.本地使用<br>拷贝到 libs目录，并在gradle文件中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    flatDir &#123;</div><div class="line">        dirs &apos;libs&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile(name:&apos;genius&apos;, ext:&apos;aar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2.网络加载<br>将aar发布到mavenCentral仓库，在gradle文件中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    maven &#123;</div><div class="line">        url &quot;http://maven.dev.sh.ctripcorp.com:8081/nexus/content/groups/public&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    classpath &apos;net.sf.proguard:proguard-gradle:5.2.1&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="多层Module依赖本地AAR"><a href="#多层Module依赖本地AAR" class="headerlink" title="多层Module依赖本地AAR"></a>多层Module依赖本地AAR</h3><p>Android Studio多层Module依赖本地AAR，在编译的时候出发生错误，找不到AAR（ModuleA libs中有c.aar，ModuleB依赖ModuleA）<br>此时需要在ModuleB的build.gradle中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    flatDir &#123;</div><div class="line">        dirs &apos;../ModuleA/libs&apos;,&apos;libs&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>同时在dependencies中添加aar名称：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile(name:&apos;c&apos;, ext:&apos;aar&apos;)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://pillowzhou.github.io/2017/03/12/INSTALL FAILED CONFLICTING PROVIDER/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wooden fish">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Develop Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/12/INSTALL FAILED CONFLICTING PROVIDER/" itemprop="url">
-                  INSTALL FAILED CONFLICTING PROVIDER
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T15:52:24+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Crash/" itemprop="url" rel="index">
-                    <span itemprop="name">Android-Crash</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##出错信息<br>安装应用程序时出错：INSTALL FAILED CONFLICTING PROVIDER</p>
-<p>##错误原因<br>多个程序使用了相同的provider，在AndroidManifest中配置了相同的android:authorities，在安装是其中一个程序时，再安装另外一个时，提示 provider冲突。在同一个设备上，provider配置的android:authorities必须是全局惟一的</p>
-<p>##解决办法<br>在不同的应用中，配置不同的android:authorities</p>
-<p>stackoverflow 有其它方案<br><a href="http://stackoverflow.com/questions/16267785/install-shows-error-in-console-install-failed-conflicting-provider" target="_blank" rel="external">http://stackoverflow.com/questions/16267785/install-shows-error-in-console-install-failed-conflicting-provider</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1745,7 +1763,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
